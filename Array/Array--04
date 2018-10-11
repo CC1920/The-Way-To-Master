@@ -1,0 +1,38 @@
+
+给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+
+你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+
+示例:
+
+给定 nums = [2, 7, 11, 15], target = 9
+
+因为 nums[0] + nums[1] = 2 + 7 = 9
+所以返回 [0, 1]
+'''
+
+
+# 这道题求的是索引值，所以可以用到 enumerate
+# 并且根据已知条件target, 可以用target 减去每一个数(index1)
+# 判断 减后得到值(index2)是否在nums 里，
+# 在的话, 返回index1， index2,
+# 不在的话， 返回None
+
+
+
+nums = [2, 7, 11, 15]
+target = 9
+
+# 新建一个字典，用nums的值作为字典索引
+# 用nums的每个值的索引作为这里字典的键
+# 这样是方便下面求索引
+
+new_dict = {}
+for x, y in enumerate(nums):
+	new_dict[y] = x
+
+for index1, value in enumerate(nums):
+	if (target - value) in nums:
+		index2 = new_dict[target-value]
+		if index1 != index2:
+			print(index1, index2)
