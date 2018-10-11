@@ -31,6 +31,7 @@ for x in nums:
 	new_dict[x] += 1
 	
 # items 方法把键值放在一个元祖里展现出来
+# 这里的x 是元祖的形式
 for x in new_dict.items():
 	# 通过上面的相加，如果某个值为1， 则打印出它的键
 	if x[1] == 1:
